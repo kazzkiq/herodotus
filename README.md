@@ -1,2 +1,2 @@
-# herodotus
-📖
+# 📖 Herodotus
+Nothing to see here, yet.
