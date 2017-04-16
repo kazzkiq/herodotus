@@ -1,0 +1,24 @@
+{
+  "name": "herodotus-doc",
+  "description": "A blazing-fast, mobile-friendly documentation generator.",
+  "author": "Claudio Holanda",
+  "version": "0.1.0",
+  "repository": "https://github.com/kazzkiq/herodotus.git",
+  "scripts": {
+    "start": "brunch watch --server",
+    "build": "brunch build --production"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@fdaciuk/ajax": "^2.1.5",
+    "auto-reload-brunch": "^2",
+    "babel-brunch": "^6.1.1",
+    "brunch": "^2",
+    "clean-css-brunch": "^2",
+    "marked": "^0.3.6",
+    "riot": "^3.4.0",
+    "riot-brunch": "0.0.4",
+    "sass-brunch": "^2.10.4",
+    "uglify-js-brunch": "^2"
+  }
+}

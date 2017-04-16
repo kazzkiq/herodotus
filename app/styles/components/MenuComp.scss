@@ -1,0 +1,102 @@
+@import "../_viewports";
+@import "../_variables";
+
+.MenuComp--overlay {
+  display: none;
+
+  @include viewports(up-to small) {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9;
+    opacity: 0;
+    background: $color-neutral;
+    transition: opacity 0.3s linear;
+    pointer-events: none;
+  }
+
+  &.active {
+    @include viewports(up-to small) {
+      opacity: 0.8;
+      pointer-events: all;
+    }
+  }
+}
+
+.MenuComp {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  width: $app-menu-width;
+  height: 100vh;
+  overflow-y: auto;
+  user-select: none;
+  background: $color-lightneutral;
+  box-shadow: -1px 0 0 rgba($color-fonts, 0.08) inset;
+
+  @include viewports(up-to small) {
+    transition: transform 0.5s cubic-bezier(.17,.67,.45,1);
+    transform: translate3d(-100%, 0, 0);
+    box-shadow: none;
+  }
+
+  &.open {
+    @include viewports(up-to small) {
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  > .logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+
+    @include viewports(up-to small) {
+      display: none;
+    }
+  }
+
+  > .menu {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    @include viewports(up-to small) {
+      margin-top: 5rem;
+    }
+
+    li {
+      font-size: 1.4rem;
+      padding: 1rem 2rem;
+      cursor: pointer;
+
+      &:hover {
+        background: rgba($color-neutral, 0.05);
+        transition: background 0.2s linear;
+      }
+
+      &.h1 {
+        color: $color-fonts;
+        font-weight: bold;
+      }
+
+      &.h2 {
+        font-size: 1.3rem;
+        padding-left: 4rem;
+        color: rgba($color-fonts, 0.5);
+      }
+
+      &.active {
+        border-right: 1px solid $color-primary;
+        font-weight: bold;
+        color: $color-primary;
+        box-shadow: -3px 0 0 rgba($color-primary, 0.1) inset;
+      }
+    }
+  }
+}
