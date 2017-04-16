@@ -10,8 +10,8 @@
  * Font families
  */
 
-$app-font: 'Noto Sans', sans-serif;
-$app-font-mono: 'Inconsolata', monospace;
+$app-font:              'Noto Sans', sans-serif;
+$app-font-mono:         'Inconsolata', monospace;
 
 
 
@@ -19,11 +19,11 @@ $app-font-mono: 'Inconsolata', monospace;
  * Colors
  */
 
-$color-fonts:  #222;
-$color-neutral:   #3f3f3f;
-$color-lightneutral: #f9f9f9;
-$color-primary:  #4189eb;
-$color-secondary:   #ad58d5;
+$color-fonts:           #222;
+$color-neutral:         #3f3f3f;
+$color-lightneutral:    #f9f9f9;
+$color-primary:         #5890d5;
+$color-secondary:       #ad58d5;
 
 
 
@@ -31,5 +31,5 @@ $color-secondary:   #ad58d5;
  * Application Variables
  */
 
-$app-menu-width: 275px;
-$app-topbar-height: 50px;
+$app-menu-width:        275px;
+$app-topbar-height:     50px;
