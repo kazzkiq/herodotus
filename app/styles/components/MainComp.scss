@@ -48,11 +48,11 @@
     text-align: justify;
   }
 
-  h1, h2 {
+  h1 {
     color: $color-secondary;
   }
 
-  h3, h4 , h5, h6 {
+  h2, h3, h4 , h5, h6 {
     color: $color-fonts;
   }
 
@@ -84,10 +84,13 @@
   pre {
     overflow-x: auto;
     background: rgba($color-primary, 0.02);
+    border: 1px solid rgba($color-primary, 0.12);
     padding: 3rem 2rem;
 
     @include viewports(up-to small) {
       margin: 1rem -2rem;
+      border-left: 0;
+      border-right: 0;
     }
 
     code {
@@ -99,7 +102,11 @@
   }
 
   p > code,
-  li > code {
+  li > code,
+  b > code,
+  i > code,
+  em > code,
+  strong > code {
     display: inline-block;
     border-radius: 2px;
     padding: 0.1rem 0.8rem;
