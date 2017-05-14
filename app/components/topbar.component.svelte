@@ -4,10 +4,10 @@
       <img class="{ off: !parent.refs.menuComp.isOpen }" src="img/icon-menu-close.svg" width="15" alt="Open Menu">
     </div>
     <div class="btn-group">
-      <div class="btn" onclick="{ fontMinus }">
+      <div class="btn" on:click="fire('fontsize', {action: 'DECREASE'})">
         <img src="img/icon-font-minus.svg" alt="Smaller font">
       </div>
-      <div class="btn" onclick="{ fontPlus }">
+      <div class="btn" on:click="fire('fontsize', {action: 'INCREASE'})">
         <img src="img/icon-font-plus.svg" alt="Smaller font">
       </div>
     </div>
@@ -15,7 +15,15 @@
     <a href="https://github.com/PeerAssets/WhitePaper" class="btn">Visit Github Project</a>
   </div>
 
-<script>/*
+<script>
+  export default {
+    methods: {
+      fontMinus () {
+        console.log(1);
+      }
+    }
+  }
+/*
   fontMinus () {
     if(this.parent.fontSize > 1) {
       this.parent.fontSize--;

@@ -1,8 +1,8 @@
 <div class="MainComp">
+  <Topbar ref:topbar on:fontsize="handleFontSize(event)" />
   <Menu ref:menu />
-  <Topbar ref:topbar />
 
-  <div class="doc-container" ref:docContainer>
+  <div class="doc-container font-{{fontSize}}" ref:docContainer>
     {{{ documentationHTML }}}
   </div>
 </div>
@@ -32,6 +32,31 @@
     },
 
     methods: {
+      handleFontSize (event) {
+        let action = event.action;
+        switch (action) {
+          case 'INCREASE':
+          this.increaseFont();
+          break;
+          case 'DECREASE':
+          this.decreaseFont();
+          break;
+        }
+      },
+      increaseFont () {
+        let fontSize = this.get('fontSize');
+        if (fontSize >= 4) {
+          return;
+        }
+        this.set({fontSize: fontSize + 1});
+      },
+      decreaseFont () {
+        let fontSize = this.get('fontSize');
+        if (fontSize <= 1) {
+          return;
+        }
+        this.set({fontSize: fontSize - 1});
+      },
       registerDocumentation () {
         const DOC_URL = 'documentation.md';
 
@@ -58,6 +83,7 @@
             id: item.id
           });
         });
+
         return menuItems;
       }
     }

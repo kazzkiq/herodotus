@@ -15,6 +15,9 @@
 <script>
   export default {
     oncreate () {
+      //this.on('', () => {
+
+      //});
     },
 
     data () {
