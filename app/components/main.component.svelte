@@ -1,5 +1,6 @@
 <div class="MainComp">
   <Menu ref:menu />
+  <Topbar ref:topbar />
 
   <div class="doc-container" ref:docContainer>
     {{{ documentationHTML }}}
@@ -8,6 +9,7 @@
 
 <script>
   import Menu from './menu.component';
+  import Topbar from './topbar.component';
   import marked from 'marked';
   import ajax from '@fdaciuk/ajax';
 
@@ -25,7 +27,8 @@
     },
 
     components: {
-      Menu
+      Menu,
+      Topbar
     },
 
     methods: {

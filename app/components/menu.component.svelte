@@ -53,7 +53,6 @@
 
       handleActivatedMenuOnScroll () {
         let menuItems = this.get('menuItems');
-        console.log(menuItems);
 
         window.onscroll = (e) => {
           let currY = window.scrollY;
