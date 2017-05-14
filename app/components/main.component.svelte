@@ -32,8 +32,6 @@
       registerDocumentation () {
         const DOC_URL = 'documentation.md';
 
-        console.log(this);
-
         ajax().get(DOC_URL).then((res, xhr) => {
           // Print documentation HTML
           this.set({
@@ -42,7 +40,7 @@
           });
 
           // Send menu to menu component
-          this.refs.menu.set({ menuItems: this.generateMenu() });
+          this.refs.menu.startMenu(this.generateMenu());
         });
       },
       generateMenu () {
@@ -57,8 +55,6 @@
             id: item.id
           });
         });
-
-        console.log(menuItems);
         return menuItems;
       }
     }
