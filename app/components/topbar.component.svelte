@@ -4,15 +4,14 @@
       <img class="{ off: !parent.refs.menuComp.isOpen }" src="img/icon-menu-close.svg" width="15" alt="Close Menu">
     </div>
     <div class="btn-group">
-      <div class="btn" on:click="fire('fontsize', {action: 'DECREASE'})">
-        <svg class="ac-svg" role="img" title="Preview Mode" width="22">
-          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="img/icon-font-minus.svg"></use>
+      <div class="btn v-center" on:click="fire('fontsize', {action: 'DECREASE'})">
+        <svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 26 20">
+          <use xlink:href="img/icon-font-minus.svg#icon" preserveAspectRatio="xMidYMid" />
         </svg>
-        <img src="" alt="Smaller font">
       </div>
-      <div class="btn" on:click="fire('fontsize', {action: 'INCREASE'})">
-        <svg class="ac-svg" role="img" title="Preview Mode" width="22">
-          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="img/icon-font-plus.svg"></use>
+      <div class="btn v-center" on:click="fire('fontsize', {action: 'INCREASE'})">
+         <svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 26 20">
+          <use xlink:href="img/icon-font-plus.svg#icon" preserveAspectRatio="xMidYMid" />
         </svg>
       </div>
     </div>

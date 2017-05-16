@@ -5,7 +5,7 @@
   "version": "0.1.0",
   "repository": "https://github.com/kazzkiq/herodotus.git",
   "scripts": {
-    "start": "brunch watch --port 3456 -n",
+    "start": "brunch watch --server -n",
     "build": "brunch build --production"
   },
   "dependencies": {

@@ -49,6 +49,10 @@
 
 
   .btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    height: 30px;
     font-size: 1.2rem;
     padding: 0.5rem 1rem;
     border-radius: 3px;
@@ -60,6 +64,32 @@
     border: 1px solid $color-primary;
     color: $color-primary;
     fill: $color-primary;
+    transition: all 0.15s linear;
+
+    .svg-icon {
+      width: 13px;
+      height: 10px;
+      fill: $color-primary;
+      margin-left: 2px;
+      transition: all 0.15s linear;
+    }
+
+    &:hover {
+      background: $color-primary;
+      color: #fff;
+
+      .svg-icon {
+        fill: #fff;
+      }
+    }
+
+    &:active {
+      background: $color-primary;
+
+      .svg-icon {
+        transform: scale(0.9);
+      }
+    }
   }
 
   .btn-group {
