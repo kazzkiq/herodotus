@@ -52,19 +52,14 @@
     font-size: 1.2rem;
     padding: 0.5rem 1rem;
     border-radius: 3px;
-    background: $color-primary;
+    background: transparent;
     color: #fff;
     text-decoration: none;
     user-select: none;
     cursor: pointer;
-
-    &:hover {
-      background: darken($color-primary, 7);
-    }
-
-    &:active {
-      background: darken($color-primary, 12);
-    }
+    border: 1px solid $color-primary;
+    color: $color-primary;
+    fill: $color-primary;
   }
 
   .btn-group {
@@ -72,7 +67,7 @@
 
     .btn {
       border-radius: 0;
-      margin-left: 1px;
+      margin-left: -1px;
       fill: red;
       color: red;
 

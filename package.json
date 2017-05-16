@@ -5,12 +5,15 @@
   "version": "0.1.0",
   "repository": "https://github.com/kazzkiq/herodotus.git",
   "scripts": {
-    "start": "brunch watch --server",
+    "start": "brunch watch --server -p",
     "build": "brunch build --production"
   },
   "dependencies": {
     "@fdaciuk/ajax": "^2.1.5",
-    "marked": "^0.3.6"
+    "install": "^0.10.1",
+    "marked": "^0.3.6",
+    "npm": "^4.5.0",
+    "prismjs": "^1.6.0"
   },
   "devDependencies": {
     "auto-reload-brunch": "^2",

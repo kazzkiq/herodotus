@@ -12,6 +12,7 @@
   import Topbar from './topbar.component';
   import marked from 'marked';
   import ajax from '@fdaciuk/ajax';
+  import Prism from 'prismjs';
 
   export default {
     oncreate () {
@@ -69,6 +70,9 @@
 
           // Send menu to menu component
           this.refs.menu.startMenu(this.generateMenu());
+
+          // Highlight code
+          Prism.highlightAll();
         });
       },
       generateMenu () {
