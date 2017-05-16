@@ -1,6 +1,6 @@
 <div class="MainComp">
-  <Topbar ref:topbar on:fontsize="handleFontSize(event)" />
-  <Menu ref:menu />
+  <Topbar ref:topbar on:mobilemenu="handleMobileMenu(event)" on:fontsize="handleFontSize(event)" />
+  <Menu ref:menu on:mobilemenu="handleMobileMenu(event)" />
 
   <div class="doc-container font-{{fontSize}}" ref:docContainer>
     {{{ documentationHTML }}}
@@ -41,6 +41,21 @@
           break;
           case 'DECREASE':
           this.decreaseFont();
+          break;
+        }
+      },
+      handleMobileMenu (event) {
+        let action = event.action;
+        switch (action) {
+          case 'TOGGLE':
+          this.refs.topbar.set({isMenuOpen: this.refs.menu.toggle()});
+          break;
+          case 'CLOSE':
+          this.refs.menu.close();
+          break;
+          case 'OPEN':
+          this.refs.menu.open();
+          this.refs.topbar.set({isMenuOpen: true});
           break;
         }
       },

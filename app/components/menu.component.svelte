@@ -1,6 +1,6 @@
 <div>
-  <div class="MenuComp--overlay" ref:overlay on:click="closeMenu()"></div>
-  <div class="MenuComp" ref:menu>
+  <div class="MenuComp--overlay {{(isOpen) ? 'active' : ''}}" ref:overlay on:click="fire('mobilemenu', {action: 'CLOSE'})"></div>
+  <div class="MenuComp {{(isOpen) ? 'open' : ''}}" ref:menu>
     <div class="logo">
       <img src="img/logo.svg" alt="PeerAssets WhitePaper">
     </div>
@@ -29,15 +29,23 @@
     },
 
     methods: {
-      closeMenu () {
-        alert(1);
+      toggle () {
+        console.log(this);
+        this.set({isOpen: !this.refs.menu.isOpen});
+        return this.refs.menu.isOpen;
       },
-
+      close () {
+        console.log('close');
+        this.set({isOpen: false});
+      },
+      open () {
+        console.log('open');
+        this.set({isOpen: true});
+      },
       startMenu (menuItems) {
         this.set({menuItems: menuItems});
         this.handleActivatedMenuOnScroll();
       },
-
       activeClass (active) {
         if(active === true) {
           return 'active';
@@ -45,7 +53,6 @@
           return '';
         }
       },
-
       removeActiveState () {
         let menuItems = this.get('menuItems').map(item => {
           item.active = false;
@@ -53,7 +60,6 @@
         });
         this.set({menuItems: menuItems});
       },
-
       handleActivatedMenuOnScroll () {
         let menuItems = this.get('menuItems');
 
@@ -87,7 +93,6 @@
           });
         }
       },
-
       scrollToItem (item) {
         let menuItems = this.get('menuItems');
         let top = window.scrollY + document.getElementById(item.id).getBoundingClientRect().top - 70;

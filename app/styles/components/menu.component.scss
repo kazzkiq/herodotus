@@ -41,7 +41,7 @@
   @include viewports(up-to small) {
     transition: transform 0.5s cubic-bezier(.17,.67,.45,1);
     transform: translate3d(-100%, 0, 0);
-    box-shadow: none;
+    box-shadow: 5px 0 30px rgba(#000, 0.1);
   }
 
   &.open {

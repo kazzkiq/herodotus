@@ -1,7 +1,6 @@
   <div class="TopbarComp">
-    <div class="menu-button" onclick="{ fire('mobilemenu', {action: 'TOGGLE'}) }">
-      <img class="{ off: parent.refs.menuComp.isOpen }" src="img/icon-menu-open.svg" width="20" alt="Open Menu">
-      <img class="{ off: !parent.refs.menuComp.isOpen }" src="img/icon-menu-close.svg" width="15" alt="Close Menu">
+    <div class="menu-button" on:click="fire('mobilemenu', {action: 'TOGGLE'})">
+      <img class="{{ (!isMenuOpen) ? '' : 'off' }}" src="img/icon-menu-open.svg" width="20" alt="Open Menu">
     </div>
     <div class="btn-group">
       <div class="btn v-center" on:click="fire('fontsize', {action: 'DECREASE'})">
