@@ -1,10 +1,11 @@
-# Welcome to Your Documentation!
+# Welcome to Herodotus!
+*Note: this is a sample documentation, feel free to edit it at will*.
 
 This content is located at `/assets/docs`. Feel free to modify it at will.
 
 Also, media files (like images) should be added to `/assets/media`. We've even created a sample for you:
 
-## Syntax Highlight
+### Syntax Highlight
 
 By default, Herodotus uses Prism.js to highlight HTML, CSS and JavaScript code.
 
