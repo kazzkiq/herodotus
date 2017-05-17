@@ -8,6 +8,7 @@
 </div>
 
 <script>
+  import Settings from '../herodotus-settings.js';
   import Menu from './menu.component';
   import Topbar from './topbar.component';
   import marked from 'marked';
@@ -74,7 +75,13 @@
         this.set({fontSize: fontSize - 1});
       },
       registerDocumentation () {
-        const DOC_URL = 'documentation.md';
+        let DOC_URL;
+        
+        if(Settings.allow_remote_documentation) {
+          DOC_URL = Settings.remote_documentation_url;
+        } else {
+          DOC_URL = 'documentation.md';
+        }
 
         ajax().get(DOC_URL).then((res, xhr) => {
           // Print documentation HTML
