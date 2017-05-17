@@ -11,7 +11,10 @@ module.exports = {
   },
   plugins: {
     babel: { presets: ['latest'] },
-    postcss: { processors: [require('autoprefixer')] }
+    postcss: { processors: [require('autoprefixer')] },
+    afterBrunch: [
+      'npm run build:docs'
+    ]
   },
   modules: {
     autoRequire: {
