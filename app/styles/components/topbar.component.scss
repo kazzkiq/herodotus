@@ -5,7 +5,7 @@
   position: fixed;
   top: 0;
   left: $app-menu-width;
-  z-index: 10;
+  z-index: 8;
   width: calc(100% - 275px);
   height: $app-topbar-height;
   display: flex;
@@ -49,21 +49,46 @@
 
 
   .btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    height: 30px;
     font-size: 1.2rem;
     padding: 0.5rem 1rem;
     border-radius: 3px;
-    background: $color-primary;
+    background: transparent;
     color: #fff;
     text-decoration: none;
     user-select: none;
     cursor: pointer;
+    border: 1px solid $color-primary;
+    color: $color-primary;
+    fill: $color-primary;
+    transition: all 0.15s linear;
+
+    .svg-icon {
+      width: 13px;
+      height: 10px;
+      fill: $color-primary;
+      margin-left: 2px;
+      transition: all 0.15s linear;
+    }
 
     &:hover {
-      background: darken($color-primary, 7);
+      background: $color-primary;
+      color: #fff;
+
+      .svg-icon {
+        fill: #fff;
+      }
     }
 
     &:active {
-      background: darken($color-primary, 12);
+      background: $color-primary;
+
+      .svg-icon {
+        transform: scale(0.9);
+      }
     }
   }
 
@@ -72,7 +97,7 @@
 
     .btn {
       border-radius: 0;
-      margin-left: 1px;
+      margin-left: -1px;
       fill: red;
       color: red;
 

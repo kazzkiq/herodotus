@@ -41,7 +41,7 @@
   @include viewports(up-to small) {
     transition: transform 0.5s cubic-bezier(.17,.67,.45,1);
     transform: translate3d(-100%, 0, 0);
-    box-shadow: none;
+    box-shadow: 5px 0 30px rgba(#000, 0.1);
   }
 
   &.open {
@@ -95,7 +95,6 @@
         border-right: 1px solid $color-primary;
         font-weight: bold;
         color: $color-primary;
-        box-shadow: -3px 0 0 rgba($color-primary, 0.1) inset;
       }
     }
   }

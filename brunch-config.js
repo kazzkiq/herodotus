@@ -1,26 +1,24 @@
 module.exports = {
-  npm: {
+  npm: {/*
     globals: {
-      riot: 'riot',
       ajax: '@fdaciuk/ajax',
       marked: 'marked'
-    }
+    }*/
   },
   files: {
     javascripts: {joinTo: 'app.js'},
     stylesheets: {joinTo: 'app.css'}
   },
   plugins: {
-    on: ['riot'],
-    riot: {
-      pattern: /\.tag$/
-    }
-  },
-  babel: {
-    presets: ['es2015'],
-    plugins: ['transform-async-to-generator']
+    babel: { presets: ['latest'] },
+    postcss: { processors: [require('autoprefixer')] },
+    afterBrunch: [
+      'npm run build:docs'
+    ]
   },
   modules: {
-    autoRequire: { 'app.js': ['initialize'] }
+    autoRequire: {
+      'app.js': ['initialize']
+    }
   }
 };
