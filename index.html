@@ -224,7 +224,7 @@
       font-size: 1.5rem;
     }
 
-    p.grey {
+    p.grey, p i {
       opacity: 0.5;
       font-style: italic;
     }
@@ -280,6 +280,11 @@
         padding: 1.5rem;
       }
 
+      .useful-buttons .btn:before,
+      .useful-buttons .btn:after {
+        display: none;
+      }
+
       .effect {
         display: none;
       }
@@ -309,6 +314,7 @@
       }
     }
   </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/balloon-css/0.4.0/balloon.min.css">
 </head>
 <body>
   <main>
@@ -324,7 +330,7 @@
       <h1 class="name">Herodotus</h1>
       <h2 class="slogan">A <b>blazing-fast</b>, mobile-friendly documentation generator.</h2>
       <div class="useful-buttons">
-        <a href="documentation" class="btn">Documentation</a>
+        <a href="documentation" class="btn" data-balloon="This also works as a live example." data-balloon-pos="down" data-balloon-visible>Documentation</a>
         <a href="https://github.com/kazzkiq/herodotus" class="btn">Github Project</a>
       </div>
     </header>
@@ -333,9 +339,9 @@
       <h2 class="title">How to use</h2>
       <p>The first step is to simply clone the Herodotus repo:</p>
       <pre><code>git clone --depth=1 https://github.com/kazzkiq/herodotus.git</code></pre>
-      <p>Then, inside your cloned repository, run (Brunch is a tiny powerful build tool needed to run Herodotus):</p>
+      <p>Then, inside your cloned repository, install Brunch and Herodotus dependencies: <br><i>Brunch is a tiny powerful build tool needed to run Herodotus.</i></p>
       <pre><code>npm i -g brunch && npm i</code></pre>
-      <p>Now, in order to start the documentation, you can simply run this command, and access localhost:3333 in your browser:</p>
+      <p>Now, in order to start the documentation, you can simply run this command, and access <b>localhost:3333</b> in your browser:</p>
       <pre><code>npm start</code></pre>
       <p>And that’s it.</p>
       <p>Now that you have your documentation up and running you can start writing into markdown files to see changes in realtime!</p>
@@ -350,7 +356,7 @@
         <li>Easily themeable (simply modify <code>variables.scss</code> to change colors, sizes, etc);</li>
         <li>Navigation generated automatically from <code>H1</code> and <code>H2</code> headings;</li>
         <li>Syntax highlight out of the box for HTML, CSS and JavaScript; </li>
-        <li>With all those features built-in, Herodotus still weights <span class="sand">only ~80kb</span> gzipped (~1 second load time on a 2G connection).</li>
+        <li>With all those features built-in, Herodotus still weights <b class="sand">only ~80kb</b> gzipped (~1 second load time on a 2G connection).</li>
       </ul>
 
       <hr>
@@ -375,6 +381,7 @@ and compression such as gzip. This will make your documentation load even faster
       <p>Herodotus wouldn’t be possible without the existence of other incredible open-source projects such as:</p>
       <ul class="credits">
         <li><a href="https://svelte.technology/">Svelte</a></li>
+        <li><a href="http://brunch.io/">Brunch</a></li>
         <li><a href="https://github.com/chjj/marked">marked</a></li>
         <li><a href="http://prismjs.com/">Prism.js</a></li>
         <li><a href="https://github.com/fdaciuk/ajax">ajax</a></li>
