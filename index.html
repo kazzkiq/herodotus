@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="theme-color" content="#715348">
+  <title>Herodotus, A blazing-fast, mobile-friendly documentation generator.</title>
+  <style>
+    *, *:before, *:after {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      font-size: 10px;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: #222;
+      font-size: 1.5rem;
+      font-family: 'Titillium Web', sans-serif;
+    }
+
+    main {
+      overflow: hidden;
+    }
+
+    a{
+      text-decoration: none;
+      font-weight: bold;
+      color: #e9b546;
+      transition: box-shadow 0.2s linear;
+    }
+
+    a:hover {
+      box-shadow: 0 2px 0 #e9b546;
+    }
+
+    hr {
+      margin: 5rem 0;
+      width: 100%;
+      height: 4px;
+      border: none;
+      background: #f7e590;
+      background: linear-gradient(90deg, #f5cd6d, #f7e590);
+    }
+
+    hr.invisible {
+      opacity: 0;
+    }
+
+    .container {
+      max-width: 880px;
+      margin: 0 auto;
+      font-family: 'Open Sans', sans-serif;
+    }
+
+    header {
+      min-height: 500px;
+      height: 100vh;
+      position: relative;
+      z-index: 2;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-content: center;
+      justify-content: center;
+    }
+
+    .effect {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin-top: -250px;
+      margin-left: -305px;
+      background: url(logo.svg) no-repeat center;
+      background-size: 100% auto;
+      width: 610px;
+      height: 500px;
+      z-index: 1;
+      opacity: 0.06;
+      pointer-events: none;
+    }
+
+    .effect.ef2 {
+      top: 150%;
+      left: 20%;
+      width: 200px;
+      height: 200px;
+    }
+
+    .effect.ef3 {
+      top: 200%;
+      left: 110%;
+      width: 200px;
+      height: 200px;
+    }
+
+    .effect.ef4 {
+      top: 350%;
+      left: 20%;
+      width: 200px;
+      height: 200px;
+    }
+
+    .effect.ef5 {
+      top: 400%;
+      left: 100%;
+      width: 200px;
+      height: 200px;
+    }
+
+    .logo {
+      width: 122px;
+      height: 122px;
+      display: flex;
+      margin: 10rem auto 0;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(-135deg, #f5cd6d, #f7e590);
+      border-radius: 20px;
+      user-select: none;
+    }
+
+    .logo img {
+      width: 105px;
+      margin-top: 5px;
+    }
+
+    .name {
+      text-align: center;
+      margin: 5rem auto 0;
+      margin-top: 2rem;
+      font-size: 2rem;
+      color: #715348;
+      text-transform: uppercase;
+    }
+
+    .slogan {
+      font-weight: normal;
+      text-align: center;
+      color: #717171;
+      font-size: 1.8rem;
+    }
+
+    .slogan b {
+      font-weight: bold;
+      color: #715348;
+    }
+
+    .btn {
+      color: #715348;
+      font-size: 1.5rem;
+      font-weight: normal;
+      border-radius: 5px;
+      padding: 1rem 1rem;
+      width: 180px;
+      background: linear-gradient(90deg, #f5cd6d, #f7e590);
+      text-align: center;
+      box-shadow: 0 0 0 1px rgba(113, 83, 72, 0) inset;
+      transition: box-shadow 0.15s linear;
+    }
+    
+    .btn:hover {
+      box-shadow: 0 0 0 1px rgba(113, 83, 72, 0.25) inset;
+    }
+
+    .useful-buttons {
+      margin: 3rem auto 10rem;
+      width: 430px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .title {
+      font-family: 'Titillium Web', sans-serif;
+      font-weight: bold;
+      font-size: 2rem;
+    }
+
+    .title:before {
+      content: '';
+      display: inline-block;
+      width: 7px;
+      height: 13px;
+      margin-right: 8px;
+      background: url(arrow.svg) no-repeat center center;
+      background-size: 100% auto;
+    }
+
+    pre {
+      margin: 2rem 0 4rem;
+      background: rgba(247, 227, 141, 0.2);
+      border-left: 4px solid #f7e38e; 
+    }
+
+    pre code {
+      display: block;
+      padding: 2rem 1.5rem;
+      font-family: 'PT Mono', monospace;
+      color: #715348;
+      font-size: 1.3rem;
+    }
+
+    ul code {
+      color: #e9b546;
+      background: rgba(245, 208, 113, 0.2);
+      padding: 0.2rem 0.8rem;
+      border-radius: 3px;
+    }
+
+    ul li {
+      margin: 1rem 0;
+    }
+
+    p {
+      font-family: 'Open Sans', sans-serif;
+      font-size: 1.5rem;
+    }
+
+    p.grey {
+      opacity: 0.5;
+      font-style: italic;
+    }
+
+    p.grey b {
+      font-style: normal;
+    }
+
+    p.text {
+      line-height: 3rem;
+      margin: 3rem 0;
+    }
+
+    .sand {
+      color: #e9b546;
+    }
+
+    .credits {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: inline-flex;
+    }
+
+    .credits li {
+      display: inline-block;
+      margin: 1rem 2rem;
+    }
+
+    .credits li:first-child {
+      margin-left: 0;
+    }
+
+    @media screen and (max-width: 600px) {
+      header {
+        min-height: 400px;
+        padding: 0 2rem;
+      }
+
+      .logo {
+        flex-shrink: 0;
+        margin-top: 7rem;
+      }
+
+      .useful-buttons {
+        width: 100%;
+        flex-direction: column;
+      }
+      
+      .useful-buttons .btn {
+        width: 100%;
+        margin-bottom: 2rem;
+        padding: 1.5rem;
+      }
+
+      .effect {
+        display: none;
+      }
+
+      .container {
+        padding: 2rem;
+      }
+
+      pre {
+        overflow: auto;
+      }
+
+      .credits {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .credits li {
+        flex: 1;
+        text-align: center;
+        margin: 1rem 0;
+      }
+
+      hr.invisible {
+        margin: 1rem 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="effect"></div>
+    <div class="effect ef2"></div>
+    <div class="effect ef3"></div>
+    <div class="effect ef4"></div>
+    <div class="effect ef5"></div>
+    <header>
+      <div class="logo">
+        <img src="logo.svg" alt="Herodotus, mobile-friendly documentation generator.">
+      </div>
+      <h1 class="name">Herodotus</h1>
+      <h2 class="slogan">A <b>blazing-fast</b>, mobile-friendly documentation generator.</h2>
+      <div class="useful-buttons">
+        <a href="documentation" class="btn">Documentation</a>
+        <a href="https://github.com/kazzkiq/herodotus" class="btn">Github Project</a>
+      </div>
+    </header>
+
+    <div class="container">
+      <h2 class="title">How to use</h2>
+      <p>The first step is to simply clone the Herodotus repo:</p>
+      <pre><code>git clone --depth=1 https://github.com/kazzkiq/herodotus.git</code></pre>
+      <p>Then, inside your cloned repository, run (Brunch is a tiny powerful build tool needed to run Herodotus):</p>
+      <pre><code>npm i -g brunch && npm i</code></pre>
+      <p>Now, in order to start the documentation, you can simply run this command, and access localhost:3333 in your browser:</p>
+      <pre><code>npm start</code></pre>
+      <p>And that’s it.</p>
+      <p>Now that you have your documentation up and running you can start writing into markdown files to see changes in realtime!</p>
+      <p class="grey">To generate production files, run: <b>npm run build</b>. Your production code can be found in <b>/public</b> folder.</p>
+      
+      <hr>
+      
+      <h2 class="title">Features</h2>
+      <ul>
+        <li>100% Static (deploy it on Github Pages, Surge, Now, etc);</li>
+        <li>Mobile friendly (off-canvas menu navigation, nice and responsive interface);</li>
+        <li>Easily themeable (simply modify <code>variables.scss</code> to change colors, sizes, etc);</li>
+        <li>Navigation generated automatically from <code>H1</code> and <code>H2</code> headings;</li>
+        <li>Syntax highlight out of the box for HTML, CSS and JavaScript; </li>
+        <li>With all those features built-in, Herodotus still weights <span class="sand">only ~80kb</span> gzipped (~1 second load time on a 2G connection).</li>
+      </ul>
+
+      <hr>
+      
+      <h2 class="title">Details</h2>
+      <p class="text">Herodotus is written in Svelte which is a reactive component framework that compiles to vanilla JavaScript. This is one of the
+secrets behind the insane speed behind the documentation parsing and page loading. It also means that Herodotus is
+library/framework agnostic. You’re free to inject any other frameworks (like React, Angular, etc) into it as you please, as it
+will not affect Herodotus components (which are compiled to vanilla JavaScript at compile time).</p>
+      <p class="text">Babel is used as transpiler, so you’re free to write ES6 code and your application should still run on ES5 browsers.</p>
+      <p class="text">The CSS is written using Sass.</p>
+      <p class="text">When you generate production files (<b>npm run build</b>) Herodotus uses Brunch to optimize CSS and JavaScript files in order
+to deliver the smaller possible sizes to your client’s browsers. But along with this, its important to enable server-side caching
+and compression such as gzip. This will make your documentation load even faster.</p>
+      <p class="text">By making use only of static files, Herodotus works in basically any environment, as long as it supports AJAX requests
+(Herodotus do only one AJAX request at the application startup in order to load the documentation markdown file).</p>
+      <p class="text">For further details, please check the <a href="#">documentation</a>.</p>
+      <hr>
+      <footer>
+      <h2 class="title">Credits</h2>
+      <p>Made by <a href="https://twitter.com/kazzkiq">@Kazzkiq</a></p>
+      <p>Herodotus wouldn’t be possible without the existence of other incredible open-source projects such as:</p>
+      <ul class="credits">
+        <li><a href="#">Svelte</a></li>
+        <li><a href="#">marked</a></li>
+        <li><a href="#">Prism.js</a></li>
+        <li><a href="#">ajax</a></li>
+      </ul>
+      </footer>
+      <hr class="invisible">
+    </div>
+  </main>
+  <script>
+    function parallax () {
+      let effects = Array.from(document.querySelectorAll('.effect'));
+
+      window.onscroll = () => {
+        effects.forEach(effect => effect.style.transform = `translate3d(0, -${window.scrollY/3}px, 0)`);
+      }
+    }
+    parallax();
+  </script>
+  <a href="https://github.com/kazzkiq/herodotus" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="z-index:10;fill:#f5cd6d;color:#715348;position: fixed; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+</body>
+</html>
