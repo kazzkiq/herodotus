@@ -94,10 +94,10 @@
     }
 
     code {
-      display: block;  
+      display: block;
       font-size: 1.5rem;
       font-family: $app-font-mono, monospace;
-      color: $color-secondary;    
+      color: $color-secondary;
     }
   }
 
@@ -144,6 +144,8 @@
 
   ul {
     li {
+      word-break: break-all;
+
       &:before {
         content: '•';
         padding-right: 0.8rem;
