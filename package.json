@@ -6,7 +6,7 @@
   "repository": "https://github.com/kazzkiq/herodotus.git",
   "scripts": {
     "start": "brunch watch --server -n",
-    "build": "brunch build",
+    "build": "echo 'Generating production optimized code, this may take a while...\n' && brunch build --production && echo 'You can find your production files at /public folder.\n\n'",
     "build:docs": "node build-docs.js"
   },
   "dependencies": {
@@ -24,10 +24,11 @@
     "babel-preset-latest": "^6.24.1",
     "brunch": "^2",
     "clean-css-brunch": "^2",
+    "closure-compiler-brunch": "^0.1.4",
+    "cssnano-brunch": "^1.1.8",
     "postcss-brunch": "^2.0.5",
     "rimraf": "^2.6.1",
     "sass-brunch": "^2.10.4",
-    "svelte-brunch": "^0.1.0",
-    "uglify-js-brunch": "^2"
+    "svelte-brunch": "^0.1.0"
   }
 }
