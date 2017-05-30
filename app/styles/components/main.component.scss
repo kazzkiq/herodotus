@@ -1,7 +1,11 @@
 @import "../_viewports";
 @import "../_variables";
 
-.MainComp { }
+.doc-container {
+  max-width: 850px;
+  margin: 0 auto;
+  padding: 2rem;
+}
 
 .doc-container {
   max-width: 850px;
