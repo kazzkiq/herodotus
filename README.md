@@ -1,8 +1,8 @@
 <p align="center">
   <img align="center" src="logo.png" alt="Herodotus" width="159">
   <br>
-  <h1>Herodotus</h1>
-  <span>A blazing-fast, mobile-friendly documentation generator.</span>
+  <h2 align="center">Herodotus</h2>
+  <h4 align="center">A blazing-fast, mobile-friendly documentation generator.</h4>
 </p>
 
 <p align="center"><img align="center" src="sample.png" alt="Herodotus" width="100%"></p>
