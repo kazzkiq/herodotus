@@ -1,9 +1,11 @@
-<div style="text-align:center"><img align="center" src="logo.png" alt="Herodotus" width="159"></div>
+<p align="center">
+  <img align="center" src="logo.png" alt="Herodotus" width="159">
+  <br>
+  <h1>Herodotus</h1>
+  <span>A blazing-fast, mobile-friendly documentation generator.</span>
+</p>
 
-# 📖 Herodotus
-A blazing-fast, mobile-friendly documentation generator.
-
-<div style="text-align:center"><img align="center" src="sample.png" alt="Herodotus" width="100%"></div>
+<p align="center"><img align="center" src="sample.png" alt="Herodotus" width="100%"></p>
 
 ----
 
