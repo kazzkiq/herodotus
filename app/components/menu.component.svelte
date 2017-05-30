@@ -97,7 +97,7 @@
         let menuItems = this.get('menuItems');
         let top = window.scrollY + document.getElementById(item.id).getBoundingClientRect().top - 70;
         window.scrollTo(0, top);
-        //this.close();
+        this.fire('mobilemenu', {action: 'CLOSE'})
 
         this.removeActiveState();
         menuItems.map(loopItem => {

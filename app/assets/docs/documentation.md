@@ -126,3 +126,7 @@ In order to add a new custom component to your documentation you should follow t
 2. Create a SCSS file at `/app/styles/components/{NAME}Comp.scss`;
 3. Insert this component inside `MainComp` component;
 4. Import this component at `/app/initialize.js`.
+
+----
+
+This documentation is still a WIP...

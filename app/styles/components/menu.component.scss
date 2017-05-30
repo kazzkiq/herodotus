@@ -35,7 +35,7 @@
   height: 100vh;
   overflow-y: auto;
   user-select: none;
-  background: $color-lightneutral;
+  background: linear-gradient(90deg, $color-sand1, $color-sand2);
   box-shadow: -1px 0 0 rgba($color-fonts, 0.08) inset;
 
   @include viewports(up-to small) {
@@ -54,10 +54,17 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100px;
+    text-align: center;
+    width: 126px;
+    height: 126px;
+    margin: 2rem auto 1rem;
 
     @include viewports(up-to small) {
       display: none;
+    }
+
+    img {
+      width: 100%;
     }
   }
 
@@ -71,30 +78,72 @@
     }
 
     li {
-      font-size: 1.4rem;
+      font-size: 1.6rem;
       padding: 1rem 2rem;
       cursor: pointer;
+      position: relative;
 
       &:hover {
         background: rgba($color-neutral, 0.05);
         transition: background 0.2s linear;
       }
 
+      &:before {
+        content: '';
+        position: absolute;
+        right: 0;
+        top: 50%;
+        width: 15px;
+        height: 2px;
+        margin-top: -2px;
+        border-radius: 4px;
+        background: #fff;
+        box-shadow: -1px 0 0 rgba($color-fonts, 0.08);
+        transition: all 0.2s ease-in-out;
+        transform: translate3d(20px, 0, 0);
+        z-index: 2;
+      }
+
+      &:after {
+        content: '';
+        position: absolute;
+        right: 0;
+        top: 50%;
+        width: 10px;
+        height: 10px;
+        margin-top: -6px;
+        margin-right: -6px;
+        border-radius: 50%;
+        background: #fff;
+        box-shadow: -1px 0 0 rgba($color-fonts, 0.08);
+        transition: all 0.2s ease-in-out;
+        transform: translate3d(10px, 0, 0);
+        z-index: 1;
+      }
+
       &.h1 {
-        color: $color-fonts;
+        color: $color-primary;
         font-weight: bold;
       }
 
       &.h2 {
-        font-size: 1.3rem;
+        font-size: 1.4rem;
         padding-left: 4rem;
         color: rgba($color-fonts, 0.5);
       }
 
       &.active {
-        border-right: 1px solid $color-primary;
+        //border-right: 1px solid $color-primary;
         font-weight: bold;
         color: $color-primary;
+
+        &:before {
+          transform: translate3d(0, 0, 0);
+        }
+
+        &:after {
+          transform: translate3d(0, 0, 0);
+        }
       }
     }
   }
