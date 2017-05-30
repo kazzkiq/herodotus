@@ -3,7 +3,7 @@ export default {
 
   allow_topbar_link: true,
   topbar_link_label: 'Visit our website',
-  topbar_link_url: '#',
+  topbar_link_url: 'https://kazzkiq.github.io/herodotus/',
 
   allow_font_size_control: true,
 
