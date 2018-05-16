@@ -1,9 +1,9 @@
 {
-  "name": "peercoin-doc",
-  "description": "Peercoin documentation",
-  "author": "Peercoin",
-  "version": "0.2.1",
-  "repository": "https://github.com/peercoin/docs.git",
+  "name": "herodotus-doc",
+  "description": "A blazing-fast, mobile-friendly documentation generator.",
+  "author": "Claudio Holanda",
+  "version": "0.2.0",
+  "repository": "https://github.com/kazzkiq/herodotus.git",
   "scripts": {
     "start": "brunch watch --server -n",
     "build": "echo 'Generating production optimized code, this may take a while...\n' && brunch build --production && echo 'You can find your production files at /public folder.\n\n'",
