@@ -2,8 +2,8 @@ export default {
   documentation_name: 'My awesome documentation',
 
   allow_topbar_link: true,
-  topbar_link_label: 'Visit our website',
-  topbar_link_url: '#',
+  topbar_link_label: 'My Documentation',
+  topbar_link_url: 'https://github.com/kazzkiq/herodotus',
 
   allow_font_size_control: true,
 

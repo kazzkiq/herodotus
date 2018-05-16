@@ -1,10 +1,31 @@
 @import "../_viewports";
 @import "../_variables";
 
-.MainComp { }
+.menu-swipper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 150px;
+  height: 100%;
+  background: red;
+  z-index: 2;
+  display: none;
+}
+
+.body {
+  padding-left: $app-menu-width;
+
+  @include viewports(up-to small) {
+    padding-left: 0;
+  }
+}
 
 .doc-container {
-  max-width: 850px;
+  display: block;
+}
+
+.doc-container {
+  max-width: 1050px;
   margin: 0 auto;
   padding: 2rem;
 
@@ -45,26 +66,32 @@
     font-size: 1.5rem;
     line-height: 2.7rem;
     word-break: break-word;
-    text-align: justify;
+    text-align: left;
   }
 
   h1 {
-    color: $color-secondary;
-  }
-
-  h2, h3, h4 , h5, h6 {
-    color: $color-fonts;
-  }
-
-  h1 {
-    display: block;
-    padding: 0.8rem 0;
-    font-weight: normal;
-    font-size: 2.8rem;
-    border-bottom: 1px solid rgba($color-secondary, 0.2);
+    color: #333;
   }
 
   h2 {
+    color: $color-primary;
+  }
+
+  h3, h4 , h5, h6 {
+    color: #333;
+  }
+
+  h1 {
+    position: relative;
+    display: block;
+    padding: 1.4rem 0;
+    font-weight: 300;
+    font-size: 3rem;
+    border-bottom: 3px solid $color-lightneutral;
+  }
+
+  h2 {
+    font-size: 2rem;
     margin-top: 4rem;
     font-weight: normal;
   }
@@ -188,5 +215,39 @@
   sub {
     color: rgba($color-neutral, 0.5);
 
+  }
+
+  table {
+    border-spacing: 0;
+    box-shadow: 0 5px 20px rgba($color-fonts, 0.15);
+
+    thead {
+      tr {
+        th {
+          background: $color-primary;
+          color: #fff;
+          padding: 1rem;
+        }
+      }
+    }
+
+    tbody {
+      tr {
+        &:nth-child(odd) {
+          td {
+            background: rgba($color-fonts, 0.05);
+          }
+        }
+
+        td {
+          padding: 1rem;
+          border-right: 1px solid rgba($color-fonts, 0.05);
+
+          &:last-child {
+            border-right: none;
+          }
+        }
+      }      
+    }
   }
 }

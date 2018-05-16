@@ -28,20 +28,23 @@
 
 .MenuComp {
   position: fixed;
-  top: 0;
+  top: $app-topbar-height;
   left: 0;
   z-index: 10;
   width: $app-menu-width;
-  height: 100vh;
+  height: calc(100vh - #{$app-topbar-height});
   overflow-y: auto;
   user-select: none;
-  background: $color-lightneutral;
-  box-shadow: -1px 0 0 rgba($color-fonts, 0.08) inset;
+  background: rgba($color-menu-bg, 0.08);
+  // box-shadow: -1px 0 0 rgba($color-fonts, 0.08) inset;
 
   @include viewports(up-to small) {
     transition: transform 0.5s cubic-bezier(.17,.67,.45,1);
     transform: translate3d(-100%, 0, 0);
     box-shadow: 5px 0 30px rgba(#000, 0.1);
+    background: #fff;
+    top: 0;
+    height: 100vh;
   }
 
   &.open {
@@ -54,47 +57,124 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100px;
+    height: 90px;
+    cursor: pointer;
+    
+    img {
+      max-width: 188px;
+      margin-left: -5px;
+    }
 
     @include viewports(up-to small) {
-      display: none;
+      height: 80px;
+    }
+  }
+
+  > .logo {
+    display: none;
+
+    @include viewports(up-to small) {
+      display: block;
+      width: 60%;
+      margin: 0 auto;
     }
   }
 
   > .menu {
     margin: 0;
     padding: 0;
+    padding-top: 36px;
     list-style: none;
 
     @include viewports(up-to small) {
-      margin-top: 5rem;
+      padding-top: 0;
     }
 
     li {
       font-size: 1.4rem;
-      padding: 1rem 2rem;
+      padding: 0;
       cursor: pointer;
 
-      &:hover {
-        background: rgba($color-neutral, 0.05);
-        transition: background 0.2s linear;
+      @include viewports(up-to small) {
+        font-size: 1.3rem;
+      }
+
+      ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .subsection {
+        display: none;
+
+        &.show {
+          display: block;
+        }
+      }
+
+      a {
+        display: block;
+        padding: 0.8rem 2rem;
+        color: inherit;
+        text-decoration: none;
+
+        @include viewports(up-to small) {
+          padding: 1.2rem 2rem;
+        }
       }
 
       &.h1 {
         color: $color-fonts;
         font-weight: bold;
+        //height: 33px;
+        overflow: hidden;
+
+        > a {
+          position: relative;
+          margin-bottom: 1px;
+
+          &:hover {
+            color: $color-primary;
+          }
+        }
       }
 
       &.h2 {
-        font-size: 1.3rem;
-        padding-left: 4rem;
-        color: rgba($color-fonts, 0.5);
+        font-weight: normal;
+        font-size: 1.3rem;  
+        color: $color-fonts;
+        background: rgba(#fff, 0.05);
+
+        @include viewports(up-to small) {
+          font-size: 1.4rem;
+        }
+
+        a {
+          position: relative;
+          padding-left: 3rem;
+
+          &:hover {
+            color: $color-primary;
+          }
+        }
       }
 
       &.active {
-        border-right: 1px solid $color-primary;
-        font-weight: bold;
-        color: $color-primary;
+        > a {
+          background: rgba($color-primary, 0.05) !important;
+
+          &:after {
+            content: '';
+            position: absolute;
+            right: 0px;
+            top: 0;
+            height: 100%;
+            display: block;
+            width: 1px;
+            background: $color-primary;
+          }
+        }
       }
     }
   }

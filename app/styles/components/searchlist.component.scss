@@ -1,0 +1,135 @@
+@import "../_viewports";
+@import "../_variables";
+
+.SearchListComp--overlay {
+  position: fixed;
+  top: 50px;
+  left: 0;
+  width: 100%;
+  height: calc(100% - 50px);
+  background: #fff;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 1;
+  transition: all 0.2s linear;
+
+  &.active {
+    opacity: 0.8;
+    pointer-events: all;
+  }
+}
+
+.SearchListComp {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  height: 100%;
+
+  .btn.btn-svg {
+    &:first-child {
+      margin-left: 0 !important;
+    }
+
+    .svg-icon {
+      width: 13px;
+      height: 13px;
+      margin-left: -1px;
+      height: 100%;
+      fill: #fff;
+    }
+  }
+
+
+  .search-popup {
+    position: absolute;
+    z-index: 2;
+    top: 100%;
+    margin-top: -1px;
+    margin-left: -1.1rem;
+    width: 340px;
+    max-height: 500px;
+    overflow-y: auto;
+    background: #fff;
+    border: 1px solid $color-primary;
+    box-shadow: 0 3px 12px rgba(#000, 0.16);
+    transition: all 0.3s linear;
+    opacity: 0;
+    pointer-events: none;
+    padding: 1rem;
+
+    @include viewports(up-to small) {
+      width: 100%;
+      max-height: calc(100vh - 50px);
+      left: 0;
+      margin-left: 0;
+      border: none;
+      border-radius: 0;
+    }
+
+    &.open {
+      pointer-events: all;
+      opacity: 1;
+    }
+
+    .filter-input {
+      width: 100%;
+      border: none;
+      padding: 1rem;
+      font-size: 1.3rem;
+      border-radius: 5px;
+      background: rgba($color-fonts, 0.05);
+      transition: background 0.15s linear;
+
+      @include viewports(up-to small) {
+        font-size: 1.5rem;
+        padding: 1.5rem 1rem;
+      }
+
+      &:focus {
+        outline: none;
+        background: rgba($color-fonts, 0.10);
+      }
+    }
+
+    .filtered-list {
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0 0;
+
+      .item {
+        padding: 1rem;
+        cursor: pointer;
+
+        &:hover {
+          background: rgba(#000, 0.04);
+        }
+
+        a {
+          text-decoration: none;
+          color: inherit;
+        }
+
+        .section-title {
+          font-size: 1.5rem;
+          color: #292929;
+        }
+
+        .section-text {
+          font-size:1.2rem;
+          color: #95989A;
+        }
+      }
+    }
+
+    .empty-message {
+      background: #eee;
+      margin: 1rem 0;
+      border-radius: 3px;
+      color: rgba(#000, 0.3);
+      text-align: center;
+      font-size: 1.4rem;
+      font-weight: normal;
+      padding: 1rem 0.5rem;
+    }
+  }
+}

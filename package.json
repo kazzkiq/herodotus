@@ -1,18 +1,21 @@
 {
-  "name": "herodotus-doc",
-  "description": "A blazing-fast, mobile-friendly documentation generator.",
-  "author": "Claudio Holanda",
-  "version": "0.1.0",
-  "repository": "https://github.com/kazzkiq/herodotus.git",
+  "name": "peercoin-doc",
+  "description": "Peercoin documentation",
+  "author": "Peercoin",
+  "version": "0.2.1",
+  "repository": "https://github.com/peercoin/docs.git",
   "scripts": {
     "start": "brunch watch --server -n",
     "build": "echo 'Generating production optimized code, this may take a while...\n' && brunch build --production && echo 'You can find your production files at /public folder.\n\n'",
-    "build:docs": "node build-docs.js"
+    "build:docs": "node task-build-docs.js",
+    "deploy": "node task-deploy.js"
   },
   "dependencies": {
     "@fdaciuk/ajax": "^2.1.5",
+    "fuse.js": "^3.0.5",
+    "hammerjs": "^2.0.8",
     "install": "^0.10.1",
-    "marked": "^0.3.6",
+    "marked": "^0.3.19",
     "npm": "^4.5.0",
     "prismjs": "^1.6.0"
   },
@@ -22,10 +25,11 @@
     "autoprefixer": "^7.0.1",
     "babel-brunch": "^6.1.1",
     "babel-preset-latest": "^6.24.1",
-    "brunch": "^2",
+    "brunch": "^2.9.0",
     "clean-css-brunch": "^2",
     "closure-compiler-brunch": "^0.1.4",
     "cssnano-brunch": "^1.1.8",
+    "gh-pages": "^1.0.0",
     "postcss-brunch": "^2.0.5",
     "rimraf": "^2.6.1",
     "sass-brunch": "^2.10.4",

@@ -18,6 +18,7 @@
 .tmproj
 nbproject
 Thumbs.db
+.package-lock.json
 
 # NPM packages folder.
 node_modules/
@@ -30,3 +31,4 @@ public/
 
 # Bower stuff.
 bower_components/
+package-lock.json

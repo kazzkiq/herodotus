@@ -3,6 +3,7 @@
 
 *, *:before, *:after {
   box-sizing: border-box;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
 }
 
 html, body {
@@ -10,15 +11,94 @@ html, body {
   padding: 0;
   font-size: 10px;
   font-family: $app-font;
+  word-break: break-word;
 }
 
 body {
   padding-top: $app-topbar-height;
-  padding-left: $app-menu-width;
+  // padding-left: $app-menu-width;
   color: $color-fonts;
   font-size: 1.5rem;
 
   @include viewports(up-to small) {
     padding-left: 0;
+  }
+}
+
+.welcome-card {
+  position: relative;
+  text-align: center;
+  padding: 6rem 1rem 4rem;
+
+  @include viewports(up-to small) {
+    padding-top: 3rem;
+  }
+
+  .title {
+    font-size: 2.5rem;
+    color: #646464;
+    font-weight: 300;
+  }
+
+  img {
+    margin: -3.5rem 0 1.5rem;
+
+    @include viewports(up-to small) {
+      margin-top: 0rem;
+    }
+  }
+
+  .call-to-action {
+    max-width: 500px;
+    margin: 0 auto;
+    font-size: 2rem;
+    color: #646464;
+    font-weight: 300;
+  }
+
+  .call-to-action-links {
+    margin-top: 5rem;
+
+    .link {
+      display: inline-block;
+      background: $color-primary;
+      width: 210px;
+      margin-right: 2rem;
+      color: #fff;
+      font-size: 1.5rem;
+      text-align: center;
+      padding: 1.4rem 1rem;
+      text-decoration: none;
+      border-radius: 4px;
+      transition: background 0.2s linear;
+
+      @include viewports(up-to medium) {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 2rem;
+      }
+
+      &:hover {
+        background: darken($color-primary, 10%);
+      }
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+}
+
+.warn {
+  margin: 1rem;
+  padding: 2rem 3rem;
+  color: #fff;
+  font-weight: bold;
+  font-size: 1.4rem;
+  border-radius: 4px;
+  background: tomato;
+
+  a {
+    color: #fff;
   }
 }
