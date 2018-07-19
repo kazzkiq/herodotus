@@ -124,7 +124,7 @@
     counter-reset: section;
     border: 1px solid rgba($color-primary, 0.5);
     padding: 0;
-    border-radius: 5px;
+    border-radius: 3px;
     list-style: none;
 
     li {
@@ -138,6 +138,7 @@
         padding-right: 0.5rem;
         font-weight: bold;
         color: $color-primary;
+        font-size: 1.4rem;
       }
 
       &:last-child {
